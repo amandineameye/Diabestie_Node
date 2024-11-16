@@ -1,0 +1,122 @@
+
+		{
+			"firstName": "Amandine",
+			"userName": "Didine98",
+			"password": "myPassword98",
+			"note": "I had two slices of bread with Nutella at 16.20",
+			"meals": [
+				{   
+                    "id": "1",
+					"bloodSugarBefore": 120,
+					"carbsGrams": 79,
+					"bolus": 6,
+					"firstMeal": false,
+					"snack": true,
+					"wasActiveBefore": false,
+					"date": "21/10/2024",
+					"time": "16:30",
+					"bloodSugarAfter": 180,
+					"wasActiveAfter": false
+				},
+				{   
+                    "id": "2",
+					"bloodSugarBefore": 150,
+					"carbsGrams": 40,
+					"bolus": 5,
+					"firstMeal": true,
+					"snack": false,
+					"wasActiveBefore": true,
+					"date": "22/10/2024",
+					"time": "07:30",
+					"bloodSugarAfter": 200,
+					"wasActiveAfter": true
+				},
+				{   
+                    "id": "3",
+					"bloodSugarBefore": 86,
+					"carbsGrams": 25,
+					"bolus": 2,
+					"firstMeal": true,
+					"snack": false,
+					"wasActiveBefore": false,
+					"date": "23/10/2024",
+					"time": "07:05",
+					"bloodSugarAfter": 70,
+					"wasActiveAfter": false
+				},
+				{
+                    "id": "4",
+					"bloodSugarBefore": 210,
+					"carbsGrams": 31,
+					"bolus": 5,
+					"firstMeal": false,
+					"snack": true,
+					"wasActiveBefore": false,
+					"date": "24/10/2024",
+					"time": "18:35",
+					"bloodSugarAfter": 195,
+					"wasActiveAfter": false
+				}
+			]
+		}
+		{
+			"firstName": "Eric",
+			"userName": "B100",
+			"password": "azerty1234",
+			"note": "I had one pack of instant noodles and injected 10 units",
+			"meals": [
+				{
+                    "id": "1",
+					"bloodSugarBefore": 210,
+					"carbsGrams": 84,
+					"bolus": 7,
+					"firstMeal": false,
+					"snack": false,
+					"wasActiveBefore": true,
+					"date": "08/11/2024",
+					"time": "12:30",
+					"bloodSugarAfter": 180,
+					"wasActiveAfter": false
+				},
+				{
+                    "id": "2",
+					"bloodSugarBefore": 150,
+					"carbsGrams": 46,
+					"bolus": 6,
+					"firstMeal": false,
+					"snack": true,
+					"wasActiveBefore": false,
+					"date": "09/11/2024",
+					"time": "16:30",
+					"bloodSugarAfter": 85,
+					"wasActiveAfter": false
+				},
+				{
+                    "id": "3",
+					"bloodSugarBefore": 86,
+					"carbsGrams": 30,
+					"bolus": 3,
+					"firstMeal": false,
+					"snack": true,
+					"wasActiveBefore": true,
+					"date": "10/11/2024",
+					"time": "17:05",
+					"bloodSugarAfter": 110,
+					"wasActiveAfter": true
+				},
+				{
+                    "id": "4",
+					"bloodSugarBefore": 210,
+					"carbsGrams": 45,
+					"bolus": 6,
+					"firstMeal": true,
+					"snack": false,
+					"wasActiveBefore": true,
+					"date": "11/11/2024",
+					"time": "08:35",
+					"bloodSugarAfter": 295,
+					"wasActiveAfter": false
+				}
+			]
+		}
+	
