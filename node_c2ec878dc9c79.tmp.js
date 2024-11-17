@@ -82,7 +82,7 @@ app.get("/userData", (request, response) => {
 		return;
 	}
 	const username = request.token.username;
-	findDataFromUsername(username).then((userData) => {
+	findDataFromUserName(username).then((userData) => {
 		response.setHeader("Content-Type", "application/json");
 		response.send(userData);
 	});
@@ -113,7 +113,7 @@ const findCarbsRates = async () => {
 	}
 };
 
-const findDataFromUsername = async (requestedUsername) => {
+const findDataFromUserName = async (requestedUserName) => {
 	try {
 		await mongoClient.connect();
 		const database = mongoClient.db("diabestieDB");
@@ -121,7 +121,7 @@ const findDataFromUsername = async (requestedUsername) => {
 		const options = {
 			projection: {},
 		};
-		const query = { userName: requestedUsername };
+		const query = { userName: requestedUserName };
 		const userDataArray = await usersData.find(query, options).toArray();
 		return userDataArray[0];
 	} catch (error) {
