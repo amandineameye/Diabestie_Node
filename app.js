@@ -44,7 +44,7 @@ const handleLogin = async (reqBodyObject, response) => {
 		const usersDataArray = await usersData.find(query, options).toArray();
 
 		const userObject = usersDataArray.find((user) => {
-			return user.userName === username;
+			return user.username === username;
 		});
 
 		if (!userObject) {
@@ -121,7 +121,7 @@ const findDataFromUsername = async (requestedUsername) => {
 		const options = {
 			projection: {},
 		};
-		const query = { userName: requestedUsername };
+		const query = { username: requestedUsername };
 		const userDataArray = await usersData.find(query, options).toArray();
 		return userDataArray[0];
 	} catch (error) {

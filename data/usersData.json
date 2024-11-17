@@ -1,7 +1,7 @@
 
 		{
 			"firstName": "Amandine",
-			"userName": "Didine98",
+			"username": "Didine98",
 			"password": "myPassword98",
 			"note": "I had two slices of bread with Nutella at 16.20",
 			"meals": [
@@ -61,7 +61,7 @@
 		}
 		{
 			"firstName": "Eric",
-			"userName": "B100",
+			"username": "B100",
 			"password": "azerty1234",
 			"note": "I had one pack of instant noodles and injected 10 units",
 			"meals": [
