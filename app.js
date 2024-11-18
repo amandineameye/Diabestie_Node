@@ -3,13 +3,12 @@ const app = express();
 const { MongoClient, ObjectId } = require("mongodb");
 const cors = require("cors");
 const jwtTool = require("./tools/jwt.tool");
-require("dotenv").config();
+// require("dotenv").config();
 
-const url = "mongodb://127.0.0.1:27017/";
-const mongoClient = new MongoClient(url);
+const mongoClient = new MongoClient(process.env.MONGO_URL);
 
-app.listen(8000, () => {
-	console.log("Server is running and listening on port 8000");
+app.listen(process.env.PORT, () => {
+	console.log("Server is running and listening on port " + process.env.PORT);
 });
 
 app.use(express.json());
@@ -140,6 +139,22 @@ const findAllUsersData = async () => {
 		const query = {};
 		const usersDataArray = await usersData.find(query, options).toArray();
 		return usersDataArray;
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+const findMealFromUsername = async (requestedUsername) => {
+	try {
+		await mongoClient.connect();
+		const database = mongoClient.db("diabestieDB");
+		const usersData = database.collection("usersData");
+		const options = {
+			projection: {},
+		};
+		const query = { username: requestedUsername };
+		const userDataArray = await usersData.find(query, options).toArray();
+		return userDataArray[0];
 	} catch (error) {
 		console.error(error);
 	}
