@@ -1,10 +1,8 @@
 const express = require("express");
 const app = express();
-const { MongoClient, ObjectId } = require("mongodb");
 const cors = require("cors");
 const jwtTool = require("./tools/jwt.tool");
 const authRouter = require("./routes/auth.route");
-
 
 app.listen(process.env.PORT, () => {
 	console.log("Server is running and listening on port " + process.env.PORT);
