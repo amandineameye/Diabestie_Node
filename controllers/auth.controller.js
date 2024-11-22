@@ -32,7 +32,7 @@ const authController = {
 
 			const token = jwtTool.generate(data);
 
-			response.status(200).json({ token: token, userObject: userObject });
+			response.status(200).json({ token: token });
 		} catch (error) {
 			console.log(error);
 			response.status(500).json({ error: "Internal Server Error" });

@@ -3,27 +3,45 @@ const app = express();
 const cors = require("cors");
 const jwtTool = require("./tools/jwt.tool");
 const authRouter = require("./routes/auth.route");
+const dashboardRouter = require("./routes/dashboard.route");
 
 app.listen(process.env.PORT, () => {
 	console.log("Server is running and listening on port " + process.env.PORT);
 });
 
 app.use(express.json());
-app.use(cors());
+app.use(
+	cors({
+		origin: "http://localhost:5173",
+		credentials: true,
+		allowedHeaders: ["Content-Type", "authorization"],
+	})
+);
+
 app.use((request, response, next) => {
 	const authHeader = request.headers["authorization"];
 	const token = authHeader && authHeader.split(" ")[1];
+	console.log("AuthHeader: ", request.headers);
 
 	if (!token) {
+		console.log("No token provided");
 		next();
 		return;
 	}
+	console.log("Received token:", token);
 
-	request.token = jwtTool.read(token);
+	try {
+		request.token = jwtTool.read(token);
+		console.log("Token decoded successfully");
+	} catch (error) {
+		console.log("Token decoding error:", error);
+		return response.sendStatus(401);
+	}
 	next();
 });
 
 app.use(authRouter);
+app.use(dashboardRouter);
 
 // app.post("/auth/login", (request, response) => {
 // 	handleLogin(request.body, response);
