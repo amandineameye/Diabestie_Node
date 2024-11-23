@@ -21,18 +21,14 @@ app.use(
 app.use((request, response, next) => {
 	const authHeader = request.headers["authorization"];
 	const token = authHeader && authHeader.split(" ")[1];
-	console.log("AuthHeader: ", request.headers);
 
 	if (!token) {
-		console.log("No token provided");
 		next();
 		return;
 	}
-	console.log("Received token:", token);
 
 	try {
 		request.token = jwtTool.read(token);
-		console.log("Token decoded successfully");
 	} catch (error) {
 		console.log("Token decoding error:", error);
 		return response.sendStatus(401);
