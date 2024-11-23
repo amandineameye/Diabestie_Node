@@ -15,5 +15,9 @@ dashboardRouter.get(
 );
 
 dashboardRouter.patch("/dashboard/updateNote", dashBoardController.patchNote);
+dashboardRouter.patch(
+	"/dashboard/updateIncompleteMeal",
+	dashboardController.patchIncompleteMeals
+);
 
 module.exports = dashboardRouter;

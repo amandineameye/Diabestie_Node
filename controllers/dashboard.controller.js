@@ -1,17 +1,32 @@
 const mongoClient = require("../tools/db.tool");
 
+const connectToDatabase = async () => {
+	try {
+		await mongoClient.connect();
+		const database = mongoClient.db("diabestieDB");
+		return database.collection("usersData");
+	} catch (error) {
+		console.error("Database connection error:", error);
+		throw new Error("Database connection failed");
+	}
+};
+
+const checkAuthToken = (request, response) => {
+	if (!request.token) {
+		response.sendStatus(401); //Request require authentification
+		return false;
+	} else {
+		return true;
+	}
+};
+
 const dashBoardController = {
 	getNote: async (request, response) => {
-		if (!request.token) {
-			response.sendStatus(401); //Request require authentification
-			return;
-		}
-		const username = request.token.username;
+		if (!checkAuthToken(request, response)) return; //If checkAuthToken (with request and response as arguments) is false, return
+		const { username } = request.token; // const username = request.token.username
 
 		try {
-			await mongoClient.connect();
-			const database = mongoClient.db("diabestieDB");
-			const usersData = database.collection("usersData");
+			const usersData = await connectToDatabase();
 			const options = {
 				projection: { _id: 0, note: 1 },
 			};
@@ -31,17 +46,12 @@ const dashBoardController = {
 		}
 	},
 	patchNote: async (request, response) => {
-		if (!request.token) {
-			response.sendStatus(401);
-			return;
-		}
-		const username = request.token.username;
+		if (!checkAuthToken(request, response)) return;
+		const { username } = request.token;
 		const updatedNote = request.body.updatedNote;
 
 		try {
-			await mongoClient.connect();
-			const database = mongoClient.db("diabestieDB");
-			const usersData = database.collection("usersData");
+			const usersData = await connectToDatabase();
 			const filter = { username: username };
 			const updatedDoc = {
 				$set: { note: updatedNote },
@@ -56,16 +66,11 @@ const dashBoardController = {
 		}
 	},
 	getMealsSummary: async (request, response) => {
-		if (!request.token) {
-			response.sendStatus(401);
-			return;
-		}
-		const username = request.token.username;
+		if (!checkAuthToken(request, response)) return;
+		const { username } = request.token;
 
 		try {
-			await mongoClient.connect();
-			const database = mongoClient.db("diabestieDB");
-			const usersData = database.collection("usersData");
+			const usersData = await connectToDatabase();
 			const result = await usersData
 				.aggregate([
 					{ $match: { username: username } },
@@ -98,16 +103,11 @@ const dashBoardController = {
 		}
 	},
 	getIncompleteMeals: async (request, response) => {
-		if (!request.token) {
-			response.sendStatus(401);
-			return;
-		}
-		const username = request.token.username;
+		if (!checkAuthToken(request, response)) return;
+		const { username } = request.token;
 
 		try {
-			await mongoClient.connect();
-			const database = mongoClient.db("diabestieDB");
-			const usersData = database.collection("usersData");
+			const usersData = await connectToDatabase();
 			const result = await usersData
 				.aggregate([
 					{ $match: { username: username } },
@@ -137,10 +137,31 @@ const dashBoardController = {
 			response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
-	patchIcompleteMeals: async (request, response) => {
-		if (!request.token) {
-			response.sendStatus(401);
-			return;
+	patchIncompleteMeals: async (request, response) => {
+		if (!checkAuthToken(request, response)) return;
+		const { username } = request.token;
+		const { mealId, bloodSugarAfter, wasActiveAfter } = request.body;
+
+		try {
+			const usersData = await connectToDatabase();
+			const filter = { username: username };
+			const updatedDoc = {
+				$set: {
+					"meals.$[targetMeal].bloodSugarAfter": bloodSugarAfter,
+					"meals.$[targetMeal].wasActiveAfter": wasActiveAfter,
+				},
+			};
+			const options = {
+				arrayFilters: [{ "targetMeal.id": mealId }],
+			};
+
+			const result = await usersData.updateOne(filter, updatedDoc, options);
+			console.log(
+				`Matched ${result.matchedCount} document(s) and updated ${result.modifiedCount} document(s).`
+			);
+		} catch (error) {
+			console.log(error);
+			response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
 };
