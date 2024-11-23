@@ -30,20 +30,37 @@ const dashBoardController = {
 			response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
-	putNote: async (request, response) => {
+	patchNote: async (request, response) => {
 		if (!request.token) {
 			response.sendStatus(401);
 			return;
 		}
+		const username = request.token.username;
+		const updatedNote = request.body.updatedNote;
+
+		try {
+			await mongoClient.connect();
+			const database = mongoClient.db("diabestieDB");
+			const usersData = database.collection("usersData");
+			const filter = { username: username };
+			const updatedDoc = {
+				$set: { note: updatedNote },
+			};
+			const result = await usersData.updateOne(filter, updatedDoc);
+			console.log(
+				`Matched ${result.matchedCount} document(s) and updated ${result.modifiedCount} document(s).`
+			);
+		} catch (error) {
+			console.log(error);
+			response.status(500).json({ error: "Internal Server Error" });
+		}
 	},
 	getMealsSummary: async (request, response) => {
-		// if (!request.token) {
-		// 	response.sendStatus(401);
-		// 	return;
-		// }
-		// const username = request.token.username;
-
-		const username = "Didine98";
+		if (!request.token) {
+			response.sendStatus(401);
+			return;
+		}
+		const username = request.token.username;
 
 		try {
 			await mongoClient.connect();
@@ -81,13 +98,11 @@ const dashBoardController = {
 		}
 	},
 	getIncompleteMeals: async (request, response) => {
-		// if (!request.token) {
-		// 	response.sendStatus(401);
-		// 	return;
-		// }
-		// const username = request.token.username;
-
-		const username = "Didine98";
+		if (!request.token) {
+			response.sendStatus(401);
+			return;
+		}
+		const username = request.token.username;
 
 		try {
 			await mongoClient.connect();
