@@ -82,7 +82,7 @@ const dashBoardController = {
 						},
 					},
 					{ $sort: { "meals.date": -1 } },
-					{ $limit: 6 },
+					{ $limit: 5 },
 					{
 						$project: {
 							_id: 0,
@@ -90,6 +90,7 @@ const dashBoardController = {
 							"meals.bolus": 1,
 							"meals.bloodSugarBefore": 1,
 							"meals.bloodSugarAfter": 1,
+							"meals.id": 1,
 						},
 					},
 				])
