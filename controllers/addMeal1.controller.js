@@ -1,0 +1,60 @@
+const mongoClient = require("../tools/db.tool");
+
+const connectToDatabase = async () => {
+	try {
+		await mongoClient.connect();
+		const database = mongoClient.db("diabestieDB");
+		return database.collection("usersData");
+	} catch (error) {
+		console.error("Database connection error:", error);
+		throw new Error("Database connection failed");
+	}
+};
+
+const checkAuthToken = (request, response) => {
+	if (!request.token) {
+		response.sendStatus(401); //Request require authentification
+		return false;
+	} else {
+		return true;
+	}
+};
+
+const addMeal1Controller = {
+	getCarbsOptions: async (request, response) => {
+		const { inputText } = request.body;
+
+		try {
+			await mongoClient.connect();
+			const database = mongoClient.db("diabestieDB");
+			const carbsCollection = database.collection("carbsRates");
+
+			// Escape special characters in inputText for regex (to interpret literally characters that have a certain meaning in characters)
+			const escapedInputText = inputText.replace(
+				/([.*+?^=!:${}()|\[\]\/\\])/g,
+				"\\$1"
+			);
+
+			// Build a regex pattern to match any word that starts with the inputText
+			const regexPattern = `\\b${escapedInputText}\\w*`; // \b ensures word boundary, \\w* means what follows can be anything
+
+			const query = {
+				carb: { $regex: regexPattern, $options: "i" },
+			};
+			const options = {
+				projection: { _id: 0, carb: 1, carbsRate: 1 },
+			};
+
+			const matchingCarbs = await carbsCollection
+				.find(query, options)
+				.toArray();
+
+			response.status(200).json({ matchingCarbs: matchingCarbs });
+		} catch (error) {
+			console.log(error);
+			response.status(500).json({ error: "Internal Server Error" });
+		}
+	},
+};
+
+module.exports = addMeal1Controller;

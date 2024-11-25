@@ -60,6 +60,7 @@ const dashBoardController = {
 			console.log(
 				`Matched ${result.matchedCount} document(s) and updated ${result.modifiedCount} document(s).`
 			);
+			response.status(200).json({ message: "Successful update" });
 		} catch (error) {
 			console.log(error);
 			response.status(500).json({ error: "Internal Server Error" });
@@ -160,6 +161,7 @@ const dashBoardController = {
 			console.log(
 				`Matched ${result.matchedCount} document(s) and updated ${result.modifiedCount} document(s).`
 			);
+			response.status(200).json({ message: "Successful update" });
 		} catch (error) {
 			console.log(error);
 			response.status(500).json({ error: "Internal Server Error" });
