@@ -6,6 +6,7 @@ const authRouter = require("./routes/auth.route");
 const dashboardRouter = require("./routes/dashboard.route");
 const addMeal1Router = require("./routes/addMeal1.route");
 const generalRouter = require("./routes/general.route");
+const addMeal2Router = require("./routes/addMeal2.route");
 
 app.listen(process.env.PORT, () => {
 	console.log("Server is running and listening on port " + process.env.PORT);
@@ -39,9 +40,10 @@ app.use((request, response, next) => {
 });
 
 app.use(authRouter);
+app.use(generalRouter);
 app.use(dashboardRouter);
 app.use(addMeal1Router);
-app.use(generalRouter);
+app.use(addMeal2Router);
 
 // app.post("/auth/login", (request, response) => {
 // 	handleLogin(request.body, response);
