@@ -1,4 +1,5 @@
 const mongoClient = require("../tools/db.tool");
+const { nanoid } = require("nanoid");
 
 const connectToDatabase = async () => {
 	try {
@@ -73,6 +74,51 @@ const addMeal2Controller = {
 			const result = await usersData.aggregate(pipeline).toArray();
 			const similarMeals = result.map((item) => item.meals);
 			response.status(200).json({ meals: similarMeals });
+		} catch (error) {
+			console.log(error);
+			response.status(500).json({ error: "Internal Server Error" });
+		}
+	},
+	patchNewMeal: async (request, response) => {
+		// if (!checkAuthToken(request, response)) return;
+		// const { username } = request.token;
+
+		const username = "Didine98";
+
+		const {
+			totalCarbs,
+			totalBolus,
+			bloodSugarBefore,
+			firstMeal,
+			snack,
+			wasActiveBefore,
+		} = request.body;
+
+		try {
+			const usersData = await connectToDatabase();
+			const filter = { username: username };
+			const newMeal = {
+				id: nanoid(),
+				bloodSugarBefore: bloodSugarBefore,
+				carbsGrams: totalCarbs,
+				bolus: totalBolus,
+				firstMeal: firstMeal,
+				snack: snack,
+				wasActiveBefore: wasActiveBefore,
+				time: new Date(),
+				bloodSugarAfter: undefined,
+				wasActiveAfter: undefined,
+			};
+			const updatedDoc = {
+				$push: {
+					meals: newMeal,
+				},
+			};
+			const result = await usersData.updateOne(filter, updatedDoc);
+			console.log(
+				`Matched ${result.matchedCount} document(s) and updated ${result.modifiedCount} document(s).`
+			);
+			response.status(200).json({ message: "Successfully added a new meal" });
 		} catch (error) {
 			console.log(error);
 			response.status(500).json({ error: "Internal Server Error" });

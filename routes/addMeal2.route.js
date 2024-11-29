@@ -8,4 +8,6 @@ addMeal2Router.post(
 	addMeal2Controller.postTotalCarbsAndGetSimilarMeals
 );
 
+addMeal2Router.patch("/addMeal2/patchNewMeal", addMeal2Controller.patchNewMeal);
+
 module.exports = addMeal2Router;
