@@ -13,7 +13,9 @@ const connectToDatabase = async () => {
 
 const checkAuthToken = (request, response) => {
 	if (!request.token) {
-		response.sendStatus(401); //Request require authentification
+		response
+			.sendStatus(401)
+			.json({ error: "Unauthorized: Missing or invalid token" }); //Request require authentification
 		return false;
 	} else {
 		return true;

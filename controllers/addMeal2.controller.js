@@ -14,7 +14,9 @@ const connectToDatabase = async () => {
 
 const checkAuthToken = (request, response) => {
 	if (!request.token) {
-		response.sendStatus(401); //Request require authentification
+		response
+			.sendStatus(401)
+			.json({ error: "Unauthorized: Missing or invalid token" }); //Request require authentification
 		return false;
 	} else {
 		return true;
@@ -80,10 +82,8 @@ const addMeal2Controller = {
 		}
 	},
 	patchNewMeal: async (request, response) => {
-		// if (!checkAuthToken(request, response)) return;
-		// const { username } = request.token;
-
-		const username = "Didine98";
+		if (!checkAuthToken(request, response)) return;
+		const { username } = request.token;
 
 		const {
 			totalCarbs,

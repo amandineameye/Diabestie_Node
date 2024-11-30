@@ -1,7 +1,5 @@
 const express = require("express");
 const dashboardController = require("../controllers/dashboard.controller");
-const dashBoardController = require("../controllers/dashboard.controller");
-
 const dashboardRouter = express.Router();
 
 dashboardRouter.get("/dashboard/getNote", dashboardController.getNote);
@@ -14,7 +12,7 @@ dashboardRouter.get(
 	dashboardController.getIncompleteMeals
 );
 
-dashboardRouter.patch("/dashboard/updateNote", dashBoardController.patchNote);
+dashboardRouter.patch("/dashboard/updateNote", dashboardController.patchNote);
 dashboardRouter.patch(
 	"/dashboard/updateIncompleteMeal",
 	dashboardController.patchIncompleteMeals
