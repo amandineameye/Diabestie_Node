@@ -42,7 +42,7 @@ const historyController = {
 						"meals.wasActiveAfter": { $ne: undefined },
 					},
 				},
-				{ $sort: { "meals.date": -1 } },
+				{ $sort: { "meals.time": -1 } },
 				{ $skip: (page - 1) * 6 },
 				{ $limit: 6 },
 				{
@@ -239,7 +239,7 @@ const historyController = {
 
 			const mealsPipeline = [
 				...basePipeline,
-				{ $sort: { "meals.date": -1 } },
+				{ $sort: { "meals.time": -1 } },
 				{ $skip: (parseInt(pageNum) - 1) * 6 },
 				{ $limit: 6 },
 				{

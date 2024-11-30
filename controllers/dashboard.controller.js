@@ -84,7 +84,7 @@ const dashBoardController = {
 							"meals.wasActiveAfter": { $ne: undefined },
 						},
 					},
-					{ $sort: { "meals.date": -1 } },
+					{ $sort: { "meals.time": -1 } },
 					{ $limit: 5 },
 					{
 						$project: {
@@ -124,7 +124,7 @@ const dashBoardController = {
 							],
 						},
 					},
-					{ $sort: { "meals.date": 1 } },
+					{ $sort: { "meals.time": 1 } },
 					{
 						$project: {
 							_id: 0,
