@@ -33,11 +33,11 @@ app.use((request, response, next) => {
 
 	try {
 		request.token = jwtTool.read(token);
+		next();
 	} catch (error) {
 		console.log("Token decoding error:", error);
 		return response.sendStatus(401);
 	}
-	next();
 });
 
 app.use(authRouter);

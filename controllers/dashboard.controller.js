@@ -13,10 +13,10 @@ const connectToDatabase = async () => {
 
 const checkAuthToken = (request, response) => {
 	if (!request.token) {
-		response
+		return response
 			.sendStatus(401)
 			.json({ error: "Unauthorized: Missing or invalid token" }); //Request require authentification
-		return false;
+		// return false;
 	} else {
 		return true;
 	}
@@ -38,13 +38,13 @@ const dashBoardController = {
 			const userNote = await usersData.findOne(query, options);
 
 			if (!userNote) {
-				response.status(400).json({ error: "Note not found" });
+				return response.status(400).json({ error: "Note not found" });
 			}
 
-			response.status(200).json({ note: userNote.note });
+			return response.status(200).json({ note: userNote.note });
 		} catch (error) {
 			console.log(error);
-			response.status(500).json({ error: "Internal Server Error" });
+			return response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
 	patchNote: async (request, response) => {
@@ -62,10 +62,10 @@ const dashBoardController = {
 			console.log(
 				`Matched ${result.matchedCount} document(s) and updated ${result.modifiedCount} document(s).`
 			);
-			response.status(200).json({ message: "Successful update" });
+			return response.status(200).json({ message: "Successful update" });
 		} catch (error) {
 			console.log(error);
-			response.status(500).json({ error: "Internal Server Error" });
+			return response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
 	getMealsSummary: async (request, response) => {
@@ -100,10 +100,10 @@ const dashBoardController = {
 				.toArray();
 
 			const recentMeals = result.map((item) => item.meals);
-			response.status(200).json({ meals: recentMeals });
+			return response.status(200).json({ meals: recentMeals });
 		} catch (error) {
 			console.log(error);
-			response.status(500).json({ error: "Internal Server Error" });
+			return response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
 	getIncompleteMeals: async (request, response) => {
@@ -135,10 +135,10 @@ const dashBoardController = {
 				])
 				.toArray();
 			const incompleteMeals = result.map((item) => item.meals);
-			response.status(200).json({ meals: incompleteMeals });
+			return response.status(200).json({ meals: incompleteMeals });
 		} catch (error) {
 			console.log(error);
-			response.status(500).json({ error: "Internal Server Error" });
+			return response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
 	patchIncompleteMeals: async (request, response) => {
@@ -163,10 +163,10 @@ const dashBoardController = {
 			console.log(
 				`Matched ${result.matchedCount} document(s) and updated ${result.modifiedCount} document(s).`
 			);
-			response.status(200).json({ message: "Successful update" });
+			return response.status(200).json({ message: "Successful update" });
 		} catch (error) {
 			console.log(error);
-			response.status(500).json({ error: "Internal Server Error" });
+			return response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
 };

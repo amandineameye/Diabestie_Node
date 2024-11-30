@@ -17,13 +17,11 @@ const authController = {
 			//  Ex: {password: 'myPassword98'}
 
 			if (!userObject) {
-				response.status(400).json({ message: "Username not found" });
-				return;
+				return response.status(400).json({ message: "Username not found" });
 			}
 
 			if (userObject.password !== password) {
-				response.status(400).json({ message: "Wrong password" });
-				return;
+				return response.status(400).json({ message: "Wrong password" });
 			}
 
 			const data = {
@@ -32,11 +30,11 @@ const authController = {
 
 			const token = jwtTool.generate(data);
 
-			response.status(200).json({ token: token });
+			return response.status(200).json({ token: token });
 		} catch (error) {
 			console.log(error);
 
-			response.status(500).json({ message: "Internal Server Error" });
+			return response.status(500).json({ message: "Internal Server Error" });
 		}
 	},
 	register: async (request, response) => {
@@ -52,8 +50,9 @@ const authController = {
 			const existingUser = await usersData.findOne(query, options);
 
 			if (existingUser) {
-				response.status(400).json({ message: "Username already exists" });
-				return;
+				return response
+					.status(400)
+					.json({ message: "Username already exists" });
 			}
 
 			const newUser = {
@@ -72,7 +71,7 @@ const authController = {
 
 			const token = jwtTool.generate(data);
 
-			response.status(200).json({
+			return response.status(200).json({
 				message: "User registered successfully",
 				userId: result.insertedId,
 				token: token,
@@ -80,7 +79,7 @@ const authController = {
 		} catch (error) {
 			console.log(error);
 
-			response.status(500).json({ message: "Internal Server Error" });
+			return response.status(500).json({ message: "Internal Server Error" });
 		}
 	},
 };

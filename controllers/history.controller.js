@@ -17,10 +17,10 @@ connectToDatabase();
 
 const checkAuthToken = (request, response) => {
 	if (!request.token) {
-		response
+		return response
 			.sendStatus(401)
 			.json({ error: "Unauthorized: Missing or invalid token" }); //Request require authentification
-		return false;
+		// return false;
 	} else {
 		return true;
 	}
@@ -69,10 +69,10 @@ const historyController = {
 			];
 			const result = await usersData.aggregate(pipeline).toArray();
 			const mostRecentMeals = result.map((item) => item.meals);
-			response.status(200).json({ meals: mostRecentMeals });
+			return response.status(200).json({ meals: mostRecentMeals });
 		} catch (error) {
 			console.log(error);
-			response.status(500).json({ error: "Internal Server Error" });
+			return response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
 	getMostRecentMealsCount: async (request, response) => {
@@ -95,18 +95,24 @@ const historyController = {
 			];
 			const result = await usersData.aggregate(pipeline).toArray();
 			const count = result[0]?.totalMeals || 0;
-			response.status(200).json({ count: count });
+			return response.status(200).json({ count: count });
 		} catch (error) {
 			console.log(error);
-			response.status(500).json({ error: "Internal Server Error" });
+			return response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
 	getFilteredMeals: async (request, response) => {
+		// if (!checkAuthToken(request, response)) return;
+		// const { username } = request.token;
+
 		const username = "Didine98";
-		const { unitsTarget, gramsTarget, tag, page } = request.query;
+
+		const { unitsTarget, gramsTarget, tag, page = 1 } = request.query;
+
+		const pageNum = Math.max(1, parseInt(page, 10));
 
 		try {
-			const pipeline = [
+			const basePipeline = [
 				{ $match: { username: username } },
 				{ $unwind: "$meals" },
 				{
@@ -200,38 +206,41 @@ const historyController = {
 				{
 					$match: {
 						$expr: {
-							$or: [
-								{
-									$and: [
-										{ $eq: [tag, "firstMeal"] },
-										{ $eq: ["$meals.firstMeal", true] },
-									],
-								},
-								{
-									$and: [
-										{ $eq: [tag, "snack"] },
-										{ $eq: ["$meals.snack", true] },
-									],
-								},
-								{
-									$and: [
-										{ $eq: [tag, "wasActive"] },
-										{
+							$switch: {
+								branches: [
+									{
+										case: { $eq: [tag, "firstMeal"] },
+										then: { $eq: ["$meals.firstMeal", true] },
+									},
+									{
+										case: { $eq: [tag, "snack"] },
+										then: { $eq: ["$meals.snack", true] },
+									},
+									{
+										case: { $eq: [tag, "wasActive"] },
+										then: {
 											$or: [
 												{ $eq: ["$meals.wasActiveBefore", true] },
 												{ $eq: ["$meals.wasActiveAfter", true] },
 											],
 										},
-									],
-								},
-								// Pass all meals if tag is not specified
-								{ $eq: [tag, undefined] },
-							],
+									},
+								],
+								default: true, // Pass all meals if no tag is specified
+							},
 						},
 					},
 				},
+			];
+
+			const countPipeline = [...basePipeline, { $count: "totalCount" }];
+			const countResult = await usersData.aggregate(countPipeline).toArray();
+			const totalCount = countResult[0]?.totalCount || 0;
+
+			const mealsPipeline = [
+				...basePipeline,
 				{ $sort: { "meals.date": -1 } },
-				{ $skip: (parseInt(page) - 1) * 6 },
+				{ $skip: (parseInt(pageNum) - 1) * 6 },
 				{ $limit: 6 },
 				{
 					$project: {
@@ -255,12 +264,16 @@ const historyController = {
 					},
 				},
 			];
-			const result = await usersData.aggregate(pipeline).toArray();
-			const filteredMeals = result.map((item) => item.meals);
-			response.status(200).json({ meals: filteredMeals });
+
+			const mealsResult = await usersData.aggregate(mealsPipeline).toArray();
+			const filteredMeals = mealsResult.map((item) => item.meals);
+
+			return response
+				.status(200)
+				.json({ meals: filteredMeals, count: totalCount });
 		} catch (error) {
 			console.log(error);
-			response.status(500).json({ error: "Internal Server Error" });
+			return response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
 };

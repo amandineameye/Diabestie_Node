@@ -5,7 +5,7 @@ const jwtTool = {
 		const secret = process.env.JWT_SECRET;
 		const options = {
 			algorithm: "HS512",
-			expiresIn: "1h",
+			expiresIn: "2min",
 			audience: process.env.JWT_AUDIENCE,
 			issuer: process.env.JWT_ISSUER,
 		};

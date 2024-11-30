@@ -13,10 +13,10 @@ const connectToDatabase = async () => {
 
 const checkAuthToken = (request, response) => {
 	if (!request.token) {
-		response
+		return response
 			.sendStatus(401)
 			.json({ error: "Unauthorized: Missing or invalid token" }); //Request require authentification
-		return false;
+		// return false;
 	} else {
 		return true;
 	}
@@ -51,10 +51,10 @@ const addMeal1Controller = {
 				.find(query, options)
 				.toArray();
 
-			response.status(200).json({ matchingCarbs: matchingCarbs });
+			return response.status(200).json({ matchingCarbs: matchingCarbs });
 		} catch (error) {
 			console.log(error);
-			response.status(500).json({ error: "Internal Server Error" });
+			return response.status(500).json({ error: "Internal Server Error" });
 		}
 	},
 };
