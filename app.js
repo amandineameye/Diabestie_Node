@@ -27,11 +27,15 @@ app.use((request, response, next) => {
 	const token = authHeader && authHeader.split(" ")[1];
 
 	if (!token) {
+		console.log("Middleware says: No token");
 		next();
 		return;
 	}
 
 	try {
+		console.log(
+			"Middleware says: About to try to read and put token in request.token"
+		);
 		request.token = jwtTool.read(token);
 		next();
 	} catch (error) {

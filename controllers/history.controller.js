@@ -17,10 +17,8 @@ connectToDatabase();
 
 const checkAuthToken = (request, response) => {
 	if (!request.token) {
-		return response
-			.sendStatus(401)
-			.json({ error: "Unauthorized: Missing or invalid token" }); //Request require authentification
-		// return false;
+		console.log("CheckAuthToken in History controller says: No request.token");
+		return false;
 	} else {
 		return true;
 	}
@@ -76,10 +74,8 @@ const historyController = {
 		}
 	},
 	getMostRecentMealsCount: async (request, response) => {
-		// if (!checkAuthToken(request, response)) return;
-		// const { username } = request.token;
-
-		const username = "Didine98";
+		if (!checkAuthToken(request, response)) return;
+		const { username } = request.token;
 
 		try {
 			const pipeline = [
@@ -102,10 +98,8 @@ const historyController = {
 		}
 	},
 	getFilteredMeals: async (request, response) => {
-		// if (!checkAuthToken(request, response)) return;
-		// const { username } = request.token;
-
-		const username = "Didine98";
+		if (!checkAuthToken(request, response)) return;
+		const { username } = request.token;
 
 		const { unitsTarget, gramsTarget, tag, page = 1 } = request.query;
 

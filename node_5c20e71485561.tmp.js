@@ -48,13 +48,11 @@ const handleLogin = async (reqBodyObject, response) => {
 		});
 
 		if (!userObject) {
-			response.status(400).json({ error: "Username not found" });
-			return;
+			return response.status(400).json({ error: "Username not found" });
 		}
 
 		if (userObject.password !== password) {
-			response.status(400).json({ error: "Wrong password" });
-			return;
+			return response.status(400).json({ error: "Wrong password" });
 		}
 
 		const data = {

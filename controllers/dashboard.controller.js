@@ -13,10 +13,10 @@ const connectToDatabase = async () => {
 
 const checkAuthToken = (request, response) => {
 	if (!request.token) {
-		return response
-			.sendStatus(401)
-			.json({ error: "Unauthorized: Missing or invalid token" }); //Request require authentification
-		// return false;
+		console.log(
+			"CheckAuthToken in Dashboard controller says: No request.token"
+		);
+		return false;
 	} else {
 		return true;
 	}
