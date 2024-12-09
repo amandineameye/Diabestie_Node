@@ -37,6 +37,7 @@ app.use((request, response, next) => {
 			"Middleware says: About to try to read and put token in request.token"
 		);
 		request.token = jwtTool.read(token);
+		console.log(request.token);
 		next();
 	} catch (error) {
 		console.log("Token decoding error:", error);
