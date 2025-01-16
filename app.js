@@ -12,10 +12,6 @@ const historyRouter = require("./routes/history.route");
 const port = process.env.PORT || 8000;
 
 
-const { v4: uuidv4 } = require('uuid');
-console.log(uuidv4());
-
-
 app.use(
 	cors({
 		origin: "https://diabestie-sooty.vercel.app",
