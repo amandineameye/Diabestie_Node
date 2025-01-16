@@ -1,5 +1,5 @@
 const mongoClient = require("../tools/db.tool");
-const { nanoid } = require("nanoid");
+const nanoid = require("nanoid");
 
 const connectToDatabase = async () => {
 	try {
