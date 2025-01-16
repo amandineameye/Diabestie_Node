@@ -1,7 +1,7 @@
-const mongoClient = require("../tools/db.tool");
+import { MongoClient } from "mongodb";
 import { nanoid } from "nanoid";
 
-const connectToDatabase = async () => {
+export const connectToDatabase = async () => {
 	try {
 		await mongoClient.connect();
 		const database = mongoClient.db("diabestieDB");
@@ -12,7 +12,7 @@ const connectToDatabase = async () => {
 	}
 };
 
-const checkAuthToken = (request, response) => {
+export const checkAuthToken = (request, response) => {
 	if (!request.token) {
 		console.log("CheckAuthToken in AddMeal2 controller says: No request.token");
 		return false;
@@ -21,7 +21,7 @@ const checkAuthToken = (request, response) => {
 	}
 };
 
-const addMeal2Controller = {
+export const addMeal2Controller = {
 	postTotalCarbsAndGetSimilarMeals: async (request, response) => {
 		if (!checkAuthToken(request, response)) return;
 		const { username } = request.token;
@@ -125,5 +125,3 @@ const addMeal2Controller = {
 		}
 	},
 };
-
-module.exports = addMeal2Controller;

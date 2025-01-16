@@ -1,7 +1,6 @@
-const express = require("express");
-const addMeal2Controller = require("../controllers/addMeal2.controller");
+import { Router as addMeal2Router } from "express";
+import addMeal2Controller from '../controllers/addMeal2.controller';
 
-const addMeal2Router = express.Router();
 
 addMeal2Router.post(
 	"/addMeal2/getSimilarMeals",
@@ -10,4 +9,4 @@ addMeal2Router.post(
 
 addMeal2Router.patch("/addMeal2/patchNewMeal", addMeal2Controller.patchNewMeal);
 
-module.exports = addMeal2Router;
+export default addMeal2Router

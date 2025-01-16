@@ -1,5 +1,5 @@
-const express = require("express");
-const historyController = require("../controllers/history.controller");
+import { Router as historyRouter } from "express";
+import historyController from '../controllers/history.controller';
 
 const historyRouter = express.Router();
 
@@ -18,4 +18,4 @@ historyRouter.get(
 	historyController.getFilteredMeals
 );
 
-module.exports = historyRouter;
+export default historyRouter;

@@ -1,6 +1,6 @@
-const mongoClient = require("../tools/db.tool");
+import mongoClient from "../tools/db.tool";
 
-const connectToDatabase = async () => {
+export const connectToDatabase = async () => {
 	try {
 		await mongoClient.connect();
 		const database = mongoClient.db("diabestieDB");
@@ -11,7 +11,7 @@ const connectToDatabase = async () => {
 	}
 };
 
-const checkAuthToken = (request, response) => {
+export const checkAuthToken = (request, response) => {
 	if (!request.token) {
 		console.log("CheckAuthToken in AddMeal1 controller says: No request.token");
 		return false;
@@ -20,7 +20,7 @@ const checkAuthToken = (request, response) => {
 	}
 };
 
-const addMeal1Controller = {
+export const addMeal1Controller = {
 	getCarbsOptions: async (request, response) => {
 		const { inputText } = request.body;
 
@@ -57,4 +57,3 @@ const addMeal1Controller = {
 	},
 };
 
-module.exports = addMeal1Controller;

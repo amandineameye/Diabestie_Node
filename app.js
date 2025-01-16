@@ -1,15 +1,13 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const cors = require("cors");
-const jwtTool = require("./tools/jwt.tool");
-const authRouter = require("./routes/auth.route");
-const dashboardRouter = require("./routes/dashboard.route");
-const addMeal1Router = require("./routes/addMeal1.route");
-const generalRouter = require("./routes/general.route");
-const addMeal2Router = require("./routes/addMeal2.route");
-const historyRouter = require("./routes/history.route");
-
-const router = require('express').Router();
+import cors from 'cors';
+import jwtTool from "./tools/jwt.tool";
+import authRouter from './routes/auth.route';
+import dashboardRouter from './routes/dashboard.route';
+import addMeal1Router from './routes/addMeal1.route;'
+import generalRouter from './routes/general.route';
+import addMeal2Router from './routes/addMeal2.route';
+import historyRouter from './routes/history.route'
 
 const port = process.env.PORT || 8000;
 
@@ -55,12 +53,6 @@ app.use((request, response, next) => {
 		return response.sendStatus(401);
 	}
 });
-
-router.get('/', (req, res, next) => {
-	res.status(200).json({text: 'Hello World'})
-	next();
-})
-
 
 app.use(authRouter);
 app.use(generalRouter);

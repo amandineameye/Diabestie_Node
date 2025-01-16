@@ -1,6 +1,5 @@
-const express = require("express");
-const dashboardController = require("../controllers/dashboard.controller");
-const dashboardRouter = express.Router();
+import { Router as dashboardRouter } from "express";
+import dashboardController from '../controllers/dashboard.controller';
 
 dashboardRouter.get("/dashboard/getNote", dashboardController.getNote);
 dashboardRouter.get(
@@ -18,4 +17,4 @@ dashboardRouter.patch(
 	dashboardController.patchIncompleteMeals
 );
 
-module.exports = dashboardRouter;
+export default dashboardRouter;
