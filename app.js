@@ -27,11 +27,12 @@ app.use(express.json());
 
 app.use(
 	cors({
-		origin: /http:\/\/localhost:\d+$/,// Your frontend URL
+		origin: "http://localhost:5173",
 		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
 		credentials: true, // Allow cookies if needed
 	})
 );
+
 
 app.use((request, response, next) => {
 	const authHeader = request.headers["authorization"];
