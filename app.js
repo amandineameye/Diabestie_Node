@@ -16,7 +16,7 @@ app.listen(port, () => {
 	console.log("Server is running and listening on port " + process.env.PORT);
 });
 
-app.options('*', cors()); // Enable preflight requests
+
 
 app.use(express.json());
 // app.use(
@@ -35,6 +35,8 @@ app.use(
 	})
 );
 
+
+app.options('*', cors()); // Enable preflight requests
 
 
 
