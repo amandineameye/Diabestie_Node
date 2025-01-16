@@ -61,6 +61,8 @@ app.use(addMeal1Router);
 app.use(addMeal2Router);
 app.use(historyRouter);
 
-app.listen(port, () => {
-	console.log("Server is running and listening on port " + process.env.PORT);
-});
+// app.listen(port, () => {
+// 	console.log("Server is running and listening on port " + process.env.PORT);
+// });
+
+module.exports = app;
