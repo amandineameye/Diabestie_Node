@@ -9,16 +9,17 @@ const generalRouter = require("./routes/general.route");
 const addMeal2Router = require("./routes/addMeal2.route");
 const historyRouter = require("./routes/history.route");
 
-
 const port = process.env.PORT || 8000;
 
-app.listen(port, () => {
-	console.log("Server is running and listening on port " + process.env.PORT);
-});
+app.use(
+	cors({
+		origin: "https://diabestie-sooty.vercel.app",
+		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
+		credentials: true, // Allow cookies if needed
+		allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+	})
+);
 
-
-
-app.use(express.json());
 // app.use(
 // 	cors({
 // 		origin: /http:\/\/localhost:\d+$/,
@@ -27,19 +28,7 @@ app.use(express.json());
 // 	})
 // );
 
-app.use(
-	cors({
-		origin: "https://diabestie-sooty.vercel.app",
-		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
-		credentials: true, // Allow cookies if needed
-	})
-);
-
-
-app.options('*', cors()); // Enable preflight requests
-
-
-
+app.use(express.json());
 
 app.use((request, response, next) => {
 	const authHeader = request.headers["authorization"];
@@ -69,3 +58,7 @@ app.use(dashboardRouter);
 app.use(addMeal1Router);
 app.use(addMeal2Router);
 app.use(historyRouter);
+
+app.listen(port, () => {
+	console.log("Server is running and listening on port " + process.env.PORT);
+});
