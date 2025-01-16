@@ -27,7 +27,7 @@ app.use(express.json());
 
 app.use(
 	cors({
-		origin: "https://diabestie-sooty.vercel.app/",
+		origin: "https://diabestie-sooty.vercel.app",
 		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
 		credentials: true, // Allow cookies if needed
 	})
