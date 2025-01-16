@@ -54,12 +54,19 @@ app.use((request, response, next) => {
 	}
 });
 
+
+
 app.use(authRouter);
 app.use(generalRouter);
 app.use(dashboardRouter);
 app.use(addMeal1Router);
 app.use(addMeal2Router);
 app.use(historyRouter);
+
+app.use((err, req, res, next) => {
+	console.error("Unhandled error:", err);
+	res.status(500).json({ message: "Internal Server Error", error: err.message });
+  });
 
 app.listen(port, () => {
 	console.log("Server is running and listening on port " + process.env.PORT);
