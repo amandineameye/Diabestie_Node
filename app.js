@@ -27,9 +27,10 @@ app.use(express.json());
 
 app.use(
 	cors({
-		origin: "http://192.168.50.43",
+		origin: "http://localhost:5173",
 		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
 		credentials: true, // Allow cookies if needed
+		allowedHeaders: ['Content-Type', 'Authorization']
 	})
 );
 
