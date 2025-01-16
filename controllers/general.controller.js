@@ -1,6 +1,6 @@
-import { MongoClient } from "mongodb";
+const mongoClient = require("../tools/db.tool");
 
-export const connectToDatabase = async () => {
+const connectToDatabase = async () => {
 	try {
 		await mongoClient.connect();
 		const database = mongoClient.db("diabestieDB");
@@ -11,7 +11,7 @@ export const connectToDatabase = async () => {
 	}
 };
 
-export const checkAuthToken = (request, response) => {
+const checkAuthToken = (request, response) => {
 	if (!request.token) {
 		console.log("CheckAuthToken in General controller says: No request.token");
 		return false;
@@ -20,7 +20,7 @@ export const checkAuthToken = (request, response) => {
 	}
 };
 
-export const generalController = {
+const generalController = {
 	getUserNames: async (request, response) => {
 		if (!checkAuthToken(request, response)) return;
 		const { username } = request.token;
@@ -51,3 +51,5 @@ export const generalController = {
 		}
 	},
 };
+
+module.exports = generalController;

@@ -1,7 +1,7 @@
-import jwtTool from "../tools/jwt.tool";
-import { MongoClient } from "mongodb";
+const jwtTool = require("../tools/jwt.tool");
+const mongoClient = require("../tools/db.tool");
 
-export const authController = {
+const authController = {
 	login: async (request, response) => {
 		const { username, password } = request.body;
 		try {
@@ -84,3 +84,4 @@ export const authController = {
 	},
 };
 
+module.exports = authController;

@@ -1,16 +1,19 @@
-import express from "express";
+const express = require("express");
 const app = express();
-import cors from 'cors';
-import {jwtTool} from "./tools/jwt.tool";
-import authRouter from './routes/auth.route';
-import dashboardRouter from './routes/dashboard.route';
-import addMeal1Router from './routes/addMeal1.route;'
-import generalRouter from './routes/general.route';
-import addMeal2Router from './routes/addMeal2.route';
-import historyRouter from './routes/history.route'
+const cors = require("cors");
+const jwtTool = require("./tools/jwt.tool");
+const authRouter = require("./routes/auth.route");
+const dashboardRouter = require("./routes/dashboard.route");
+const addMeal1Router = require("./routes/addMeal1.route");
+const generalRouter = require("./routes/general.route");
+const addMeal2Router = require("./routes/addMeal2.route");
+const historyRouter = require("./routes/history.route");
 
 const port = process.env.PORT || 8000;
 
+
+const { v4: uuidv4 } = require('uuid');
+console.log(uuidv4());
 
 
 app.use(
@@ -53,6 +56,8 @@ app.use((request, response, next) => {
 		return response.sendStatus(401);
 	}
 });
+
+
 
 app.use(authRouter);
 app.use(generalRouter);

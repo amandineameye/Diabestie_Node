@@ -1,10 +1,11 @@
-import { Router as addMeal1Router } from "express";
-import addMeal1Controller from '../controllers/addMeal1.controller';
+const express = require("express");
+const addMeal1Controller = require("../controllers/addMeal1.controller");
 
+const addMeal1Router = express.Router();
 
 addMeal1Router.post(
 	"/addMeal1/getCarbsOptions",
 	addMeal1Controller.getCarbsOptions
 );
 
-export default addMeal1Router;
+module.exports = addMeal1Router;

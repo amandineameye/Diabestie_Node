@@ -1,5 +1,6 @@
-import { MongoClient } from "mongodb";
+const { MongoClient} = require("mongodb");
 
-export const mongoClient = new MongoClient(process.env.MONGO_ATLAS_URL);
+const mongoClient = new MongoClient(process.env.MONGO_URL);
 
 
+module.exports = mongoClient;

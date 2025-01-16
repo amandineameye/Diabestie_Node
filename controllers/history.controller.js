@@ -1,8 +1,8 @@
-import { MongoClient } from "mongodb";
+const mongoClient = require("../tools/db.tool");
 
 let usersData;
 
-export const connectToDatabase = async () => {
+const connectToDatabase = async () => {
 	try {
 		await mongoClient.connect();
 		const database = mongoClient.db("diabestieDB");
@@ -15,7 +15,7 @@ export const connectToDatabase = async () => {
 
 connectToDatabase();
 
-export const checkAuthToken = (request, response) => {
+const checkAuthToken = (request, response) => {
 	if (!request.token) {
 		console.log("CheckAuthToken in History controller says: No request.token");
 		return false;
@@ -24,7 +24,7 @@ export const checkAuthToken = (request, response) => {
 	}
 };
 
-export const historyController = {
+const historyController = {
 	getMostRecentMeals: async (request, response) => {
 		if (!checkAuthToken(request, response)) return;
 		const { username } = request.token;
@@ -272,3 +272,4 @@ export const historyController = {
 	},
 };
 
+module.exports = historyController;
