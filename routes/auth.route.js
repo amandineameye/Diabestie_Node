@@ -3,6 +3,10 @@ const authController = require("../controllers/auth.controller");
 
 const authRouter = express.Router();
 
+
+authRouter.post('/test', (req, res) => {
+    res.send(200).json({text: 'Hello World'})
+})
 authRouter.post("/auth/login", authController.login);
 authRouter.post("/auth/register", authController.register);
 
