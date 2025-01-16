@@ -30,7 +30,7 @@ app.use(
 		origin: "http://localhost:5173",
 		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
 		credentials: true, // Allow cookies if needed
-		allowedHeaders: ['Content-Type', 'Authorization']
+		allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin']
 	})
 );
 
