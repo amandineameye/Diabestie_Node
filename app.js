@@ -27,7 +27,7 @@ app.use(express.json());
 
 app.use(
 	cors({
-		origin: "http://localhost:5173",
+		origin: "https://diabestie-sooty.vercel.app/",
 		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
 		credentials: true, // Allow cookies if needed
 		allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin']
