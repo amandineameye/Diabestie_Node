@@ -11,7 +11,7 @@ const historyRouter = require("./routes/history.route");
 
 const port = process.env.PORT || 8000;
 
-app.use(express.json());
+
 
 app.use(
 	cors({
@@ -61,8 +61,6 @@ app.use(addMeal1Router);
 app.use(addMeal2Router);
 app.use(historyRouter);
 
-// app.listen(port, () => {
-// 	console.log("Server is running and listening on port " + process.env.PORT);
-// });
-
-module.exports = app;
+app.listen(port, () => {
+	console.log("Server is running and listening on port " + process.env.PORT);
+});
