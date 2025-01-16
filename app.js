@@ -9,6 +9,8 @@ const generalRouter = require("./routes/general.route");
 const addMeal2Router = require("./routes/addMeal2.route");
 const historyRouter = require("./routes/history.route");
 
+const router = require('express').Router();
+
 const port = process.env.PORT || 8000;
 
 
@@ -54,6 +56,10 @@ app.use((request, response, next) => {
 	}
 });
 
+router.get('/', (req, res, next) => {
+	res.status(200).json({text: 'Hello World'})
+	next();
+})
 
 
 app.use(authRouter);
