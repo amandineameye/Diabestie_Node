@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const jwtTool = {
+export const jwtTool = {
 	generate: function (data) {
 		const secret = process.env.JWT_SECRET;
 		const options = {
@@ -27,5 +27,3 @@ const jwtTool = {
 		}
 	},
 };
-
-export default jwtTool;
