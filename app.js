@@ -34,6 +34,8 @@ app.use(
 );
 
 
+
+
 app.use((request, response, next) => {
 	const authHeader = request.headers["authorization"];
 	const token = authHeader && authHeader.split(" ")[1];
