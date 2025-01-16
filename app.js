@@ -30,7 +30,7 @@ app.use(
 		origin: "https://diabestie-sooty.vercel.app/",
 		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
 		credentials: true, // Allow cookies if needed
-		allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin']
+		headers: ['Access-Control-Allow-Origin', 'Content-Type', 'Authorization']
 	})
 );
 
