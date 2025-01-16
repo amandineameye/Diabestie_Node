@@ -11,6 +11,8 @@ const historyRouter = require("./routes/history.route");
 
 const port = process.env.PORT || 8000;
 
+app.use(express.json());
+
 app.use(
 	cors({
 		origin: "https://diabestie-sooty.vercel.app",
@@ -28,7 +30,7 @@ app.use(
 // 	})
 // );
 
-app.use(express.json());
+
 
 app.use((request, response, next) => {
 	const authHeader = request.headers["authorization"];
