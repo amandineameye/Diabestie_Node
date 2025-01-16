@@ -9,16 +9,27 @@ const generalRouter = require("./routes/general.route");
 const addMeal2Router = require("./routes/addMeal2.route");
 const historyRouter = require("./routes/history.route");
 
-app.listen(process.env.PORT, () => {
+
+const port = process.env.PORT || 8000;
+
+app.listen(port, () => {
 	console.log("Server is running and listening on port " + process.env.PORT);
 });
 
 app.use(express.json());
+// app.use(
+// 	cors({
+// 		origin: /http:\/\/localhost:\d+$/,
+// 		credentials: true,
+// 		allowedHeaders: ["Content-Type", "authorization"],
+// 	})
+// );
+
 app.use(
 	cors({
-		origin: /http:\/\/localhost:\d+$/,
-		credentials: true,
-		allowedHeaders: ["Content-Type", "authorization"],
+		origin: "*", // Your frontend URL
+		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
+		credentials: true, // Allow cookies if needed
 	})
 );
 
