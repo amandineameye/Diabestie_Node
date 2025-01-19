@@ -5,6 +5,7 @@ const authController = {
 	login: async (request, response) => {
 		console.log("Entered login route");
 		const { username, password } = request.body;
+		console.log("Request.body: ", username, password);
 		try {
 			await mongoClient.connect();
 			const database = mongoClient.db("diabestieDB");
@@ -19,6 +20,8 @@ const authController = {
 
 			if (!userObject) {
 				return response.status(400).json({ message: "Username not found" });
+			} else {
+				console.log("User object: ", userObject);
 			}
 
 			if (userObject.password !== password) {

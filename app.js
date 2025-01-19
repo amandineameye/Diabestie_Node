@@ -39,6 +39,7 @@ app.use((request, response, next) => {
 	if (!token) {
 		console.log("Middleware says: No token");
 		next();
+		return;
 	}
 
 	try {
