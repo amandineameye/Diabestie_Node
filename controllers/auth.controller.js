@@ -30,7 +30,7 @@ const authController = {
 			};
 
 			console.log("About to generate a token in login route");
-			const token = jwtTool.generate(data);
+			const token = await jwtTool.generate(data);
 
 			return response.status(200).json({ token: token });
 		} catch (error) {
