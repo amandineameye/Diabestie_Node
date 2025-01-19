@@ -11,10 +11,9 @@ const historyRouter = require("./routes/history.route");
 
 const port = process.env.PORT || 8000;
 
-
 app.use(
 	cors({
-		origin: "https://diabestie-sooty.vercel.app",
+		origin: "https://diabestie-ecru.vercel.app",
 		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
 		credentials: true, // Allow cookies if needed
 		allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
@@ -28,8 +27,6 @@ app.use(
 // 		allowedHeaders: ["Content-Type", "authorization"],
 // 	})
 // );
-
-
 
 app.use((request, response, next) => {
 	const authHeader = request.headers["authorization"];
@@ -53,8 +50,6 @@ app.use((request, response, next) => {
 	}
 });
 
-
-
 app.use(authRouter);
 app.use(generalRouter);
 app.use(dashboardRouter);
@@ -64,8 +59,10 @@ app.use(historyRouter);
 
 app.use((err, req, res, next) => {
 	console.error("Unhandled error:", err);
-	res.status(500).json({ message: "Internal Server Error", error: err.message });
-  });
+	res
+		.status(500)
+		.json({ message: "Internal Server Error", error: err.message });
+});
 
 app.listen(port, () => {
 	console.log("Server is running and listening on port " + process.env.PORT);
