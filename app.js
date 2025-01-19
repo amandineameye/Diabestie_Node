@@ -11,14 +11,14 @@ const historyRouter = require("./routes/history.route");
 
 const port = process.env.PORT || 8000;
 
-app.use(
-	cors({
-		origin: "*",
-		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
-		credentials: true, // Allow cookies if needed
-		allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-	})
-);
+// app.use(
+// 	cors({
+// 		origin: "*",
+// 		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
+// 		credentials: true, // Allow cookies if needed
+// 		allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+// 	})
+// );
 
 // app.use(
 // 	cors({
