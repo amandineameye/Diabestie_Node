@@ -13,7 +13,7 @@ const port = process.env.PORT || 8000;
 
 app.use(
 	cors({
-		origin: "https://diabestie-ecru.vercel.app",
+		origin: "*",
 		methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed HTTP methods
 		credentials: true, // Allow cookies if needed
 		allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
