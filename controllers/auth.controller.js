@@ -3,6 +3,7 @@ const mongoClient = require("../tools/db.tool");
 
 const authController = {
 	login: async (request, response) => {
+		console.log("Entered login route");
 		const { username, password } = request.body;
 		try {
 			await mongoClient.connect();
@@ -28,6 +29,7 @@ const authController = {
 				username: username,
 			};
 
+			console.log("About to generate a token in login route");
 			const token = jwtTool.generate(data);
 
 			return response.status(200).json({ token: token });
