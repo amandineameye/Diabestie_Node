@@ -42,6 +42,7 @@ app.use((request, response, next) => {
 	}
 
 	try {
+		console.log("Token: ", request.token);
 		console.log(
 			"Middleware says: About to try to read and put token in request.token"
 		);
