@@ -8,6 +8,7 @@ const addMeal1Router = require("./routes/addMeal1.route");
 const generalRouter = require("./routes/general.route");
 const addMeal2Router = require("./routes/addMeal2.route");
 const historyRouter = require("./routes/history.route");
+const bodyParser = require("body-parser");
 
 const port = process.env.PORT || 8000;
 
@@ -27,6 +28,9 @@ const port = process.env.PORT || 8000;
 // 		allowedHeaders: ["Content-Type", "authorization"],
 // 	})
 // );
+
+app.use(express.json());
+app.use(bodyParser.json());
 
 app.use((request, response, next) => {
 	const authHeader = request.headers["authorization"];
