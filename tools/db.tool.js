@@ -1,6 +1,7 @@
-const { MongoClient} = require("mongodb");
+const { MongoClient } = require('mongodb');
 
-const mongoClient = new MongoClient(process.env.MONGO_ATLAS_URL);
+const connectionString = process.env.MONGODB_CONNECTION_STRING + '/diabestieDB';
 
+const mongoClient = new MongoClient(connectionString);
 
 module.exports = mongoClient;
