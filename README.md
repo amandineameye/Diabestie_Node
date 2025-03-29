@@ -2,7 +2,8 @@
 
 **Note:** This project is split into two repos—one for the frontend and one for the backend. Both need to be set up and run separately but work together seamlessly.
 
-Diabestie is a web app designed to help diabetics accurately estimate their insulin needs before a meal. Built by diabetics for diabetics.
+Diabestie is a web app designed to help diabetics accurately estimate their insulin needs before a meal.
+Built by diabetics for diabetics.
 
 ## 🧠 Vision
 
@@ -24,7 +25,7 @@ Diabestie is designed to streamline insulin management through two key functions
 
 2. **Data-Driven Decision Support** – Get relevant insights from past meals to guide your insulin decisions.
 
-## 🔹 How It Works
+## ⚙️ How It Works
 
 🍽 **Log Your Meal** – Enter the weight of each ingredient (e.g., 10g of banana, 100g of rice), and the app calculates the total carbohydrate content.
 
@@ -41,6 +42,24 @@ Diabestie is designed to streamline insulin management through two key functions
 🔍 **Filter Your History** – Quickly find specific meals based on factors like time of day, physical activity, or carb content.
 
 📝 **Quick Dashboard Notes** – Add a temporary note to the dashboard when you’re short on time to log a full meal entry.
+
+## 📸 Screenshots
+
+### 1. **Dashboard View**
+
+![Dashboard Screenshot](https://github.com/amandineameye/Diabestie_React/blob/main/src/assets/readmeScreenshots/Demo1.png?raw=true)
+
+### 2. **Entering Ingredients Data**
+
+![Entering Ingredients Data Screenshot](https://github.com/amandineameye/Diabestie_React/blob/main/src/assets/readmeScreenshots/Demo2.png?raw=true)
+
+### 3. **Insulin Decision Page**
+
+![Insulin Decision Page Screenshot](https://github.com/amandineameye/Diabestie_React/blob/main/src/assets/readmeScreenshots/Demo3.png?raw=true)
+
+### 4. **History Page**
+
+![History Page Screenshot](https://github.com/amandineameye/Diabestie_React/blob/main/src/assets/readmeScreenshots/Demo4.png?raw=true)
 
 ---
 
