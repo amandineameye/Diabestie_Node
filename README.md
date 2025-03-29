@@ -138,10 +138,10 @@ npm install
 npm run dev
 ```
 
-**Note:** At the root of the backend repository, you will find a **`diabestieDB.usersData.json`** file, providing an example of how the data is structured in the database.
+**Note:** In the data folder of the backend repository, you will find a **`diabestieDB.usersData.json`** file and a **`diabestieDB.carbsRates.json`**, providing an example of how the data is structured in the database.
 
-You can view the example file directly on GitHub here:  
-[diabestieDB.usersData.json](https://github.com/amandineameye/Diabestie_Node/blob/main/diabestieDB.usersData.json)
+You can view the folder directly on GitHub here:  
+[data folder](https://github.com/amandineameye/Diabestie_Node/blob/main/data)
 
 ---
 
