@@ -96,8 +96,7 @@ If you haven’t installed it yet, you can get it from the [official Node.js web
 
 ## 🚀 Frontend Setup
 
-1. Clone the frontend repository:  
-   [Diabestie Frontend](https://github.com/amandineameye/Diabestie_React.git)
+1. Clone the frontend repository: [Diabestie Frontend](https://github.com/amandineameye/Diabestie_React.git)
 
 2. Create a `.env` file in the frontend directory with the following content:
 
@@ -116,8 +115,7 @@ npm run dev
 
 ## 🔧 Backend Setup
 
-1. Clone the backend repository:  
-   [Diabestie Backend](https://github.com/amandineameye/Diabestie_Node.git)
+1. Clone the backend repository: [Diabestie Backend](https://github.com/amandineameye/Diabestie_Node.git)
 
 2. Create a `.env` file in the backend directory with the following content:
 
