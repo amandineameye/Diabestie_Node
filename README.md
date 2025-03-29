@@ -126,7 +126,7 @@ JWT_ISSUER=diabestie-backend
 
 FRONTEND_URL=http://localhost:5173
 PORT=3001
-MONGODB_CONNECTION_STRING=your mongodb connection string (see next section)
+MONGODB_CONNECTION_STRING=your-mongodb-connection-string (see next section)
 ```
 
 3. Install dependencies and start the development server:
