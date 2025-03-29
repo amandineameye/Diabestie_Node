@@ -3,6 +3,7 @@
     "$oid": "6737c10617d6a68240384276"
   },
   "firstName": "Amandine",
+  "username": "Didine98",
   "password": "myPassword98",
   "note": "",
   "meals": [
@@ -272,6 +273,279 @@
       "bloodSugarAfter": 120,
       "wasActiveAfter": true
     }
-  ],
-  "username": "Didine98"
+  ]
+},
+{
+  "firstName": "John",
+  "username": "Test",
+  "password": "Test12345",
+  "note": "I had a hypoglycemia at 4.15pm and drank some orange juice",
+  "meals": [
+    {
+      "id": "1",
+      "bloodSugarBefore": 120,
+      "carbsGrams": 22,
+      "bolus": 3,
+      "firstMeal": false,
+      "snack": false,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-11-22T19:30:00.000Z"
+      },
+      "bloodSugarAfter": 130,
+      "wasActiveAfter": false
+    },
+    {
+      "id": "2",
+      "bloodSugarBefore": 150,
+      "carbsGrams": 28,
+      "bolus": 3,
+      "firstMeal": false,
+      "snack": false,
+      "wasActiveBefore": true,
+      "time": {
+        "$date": "2024-11-22T12:00:00.000Z"
+      },
+      "bloodSugarAfter": 85,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "3",
+      "bloodSugarBefore": 86,
+      "carbsGrams": 25,
+      "bolus": 3,
+      "firstMeal": false,
+      "snack": true,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-11-21T09:30:00.000Z"
+      },
+      "bloodSugarAfter": 65,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "4",
+      "bloodSugarBefore": 210,
+      "carbsGrams": 95,
+      "bolus": 10,
+      "firstMeal": false,
+      "snack": false,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-11-21T21:30:00.000Z"
+      },
+      "bloodSugarAfter": 300,
+      "wasActiveAfter": false
+    },
+    {
+      "id": "5",
+      "bloodSugarBefore": 180,
+      "carbsGrams": 135,
+      "bolus": 12,
+      "firstMeal": false,
+      "snack": false,
+      "wasActiveBefore": true,
+      "time": {
+        "$date": "2024-11-23T17:10:00.000Z"
+      },
+      "bloodSugarAfter": 150,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "6",
+      "bloodSugarBefore": 200,
+      "carbsGrams": 45,
+      "bolus": 5,
+      "firstMeal": true,
+      "snack": false,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-11-23T07:20:00.000Z"
+      },
+      "bloodSugarAfter": 180,
+      "wasActiveAfter": false
+    },
+    {
+      "id": "7",
+      "bloodSugarBefore": 180,
+      "carbsGrams": 22,
+      "bolus": 4,
+      "firstMeal": false,
+      "snack": true,
+      "wasActiveBefore": true,
+      "time": {
+        "$date": "2024-11-24T17:20:00.000Z"
+      },
+      "bloodSugarAfter": 160,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "8",
+      "bloodSugarBefore": 200,
+      "carbsGrams": 71,
+      "bolus": 4,
+      "firstMeal": true,
+      "snack": false,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-11-23T07:20:00.000Z"
+      },
+      "bloodSugarAfter": 120,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "9",
+      "bloodSugarBefore": 200,
+      "carbsGrams": 80,
+      "bolus": 4,
+      "firstMeal": true,
+      "snack": false,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-11-23T07:20:00.000Z"
+      },
+      "bloodSugarAfter": 120,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "10",
+      "bloodSugarBefore": 200,
+      "carbsGrams": 73,
+      "bolus": 4,
+      "firstMeal": true,
+      "snack": false,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-11-23T07:20:00.000Z"
+      },
+      "bloodSugarAfter": 120,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "Rykz9xrEr_viSFRGz-nmF",
+      "bloodSugarBefore": 120,
+      "carbsGrams": 68,
+      "bolus": 8,
+      "firstMeal": false,
+      "snack": true,
+      "wasActiveBefore": true,
+      "time": {
+        "$date": "2024-11-29T03:19:49.423Z"
+      },
+      "bloodSugarAfter": 200,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "Z6jZidbWt9kPXfwAdnOpo",
+      "bloodSugarBefore": 120,
+      "carbsGrams": 68,
+      "bolus": 8,
+      "firstMeal": false,
+      "snack": true,
+      "wasActiveBefore": true,
+      "time": {
+        "$date": "2024-11-29T03:20:22.554Z"
+      },
+      "bloodSugarAfter": 180,
+      "wasActiveAfter": false
+    },
+    {
+      "id": "G3P2mUqutqS3c0CSFA0sg",
+      "bloodSugarBefore": 120,
+      "carbsGrams": 68,
+      "bolus": 8,
+      "firstMeal": false,
+      "snack": true,
+      "wasActiveBefore": true,
+      "time": {
+        "$date": "2024-11-29T03:23:15.638Z"
+      },
+      "bloodSugarAfter": 130,
+      "wasActiveAfter": false
+    },
+    {
+      "id": "IGkH9YvPxKPfbY_eYjAPX",
+      "bloodSugarBefore": 120,
+      "carbsGrams": 4.6,
+      "bolus": 3,
+      "firstMeal": false,
+      "snack": false,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-11-29T04:04:06.908Z"
+      },
+      "bloodSugarAfter": 65,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "yR_YZwj93aDaM8i3RWh3A",
+      "bloodSugarBefore": 70,
+      "carbsGrams": 4.6,
+      "bolus": 6,
+      "firstMeal": true,
+      "snack": true,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-11-29T04:11:35.715Z"
+      },
+      "bloodSugarAfter": 120,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "HFxzyZ-B-B4DQ0Mei2gDl",
+      "bloodSugarBefore": 65,
+      "carbsGrams": 26.7,
+      "bolus": 5,
+      "firstMeal": true,
+      "snack": false,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-11-29T04:35:52.476Z"
+      },
+      "bloodSugarAfter": 320,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "89U9G2M3h2V8QtvAT7I3Q",
+      "bloodSugarBefore": 130,
+      "carbsGrams": 11.5,
+      "bolus": 5,
+      "firstMeal": true,
+      "snack": false,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-11-30T20:18:17.359Z"
+      },
+      "bloodSugarAfter": 120,
+      "wasActiveAfter": true
+    },
+    {
+      "id": "9H3vVs3741a2oVuAAZVYW",
+      "bloodSugarBefore": 120,
+      "carbsGrams": 81.5,
+      "bolus": 3,
+      "firstMeal": false,
+      "snack": false,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-12-01T14:34:07.925Z"
+      },
+      "bloodSugarAfter": null,
+      "wasActiveAfter": null
+    },
+    {
+      "id": "iaQtrRVjLkz8dNQzW--jb",
+      "bloodSugarBefore": 120,
+      "carbsGrams": 26.5,
+      "bolus": 1,
+      "firstMeal": false,
+      "snack": true,
+      "wasActiveBefore": false,
+      "time": {
+        "$date": "2024-12-01T21:27:07.472Z"
+      },
+      "bloodSugarAfter": 120,
+      "wasActiveAfter": true
+    }
+  ]
 }]
