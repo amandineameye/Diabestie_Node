@@ -78,7 +78,14 @@ Create an account or use:
 - **Frontend:** React, Redux
 - **Backend:** Node.js, Express
 - **Database:** MongoDB
+- **Authentication:** JWT (JSON Web Tokens)
 - **Hosting:** Vercel
+
+---
+
+## 🔐 Authentication
+
+Diabestie uses **JWT (JSON Web Tokens)** for secure user authentication. After login, the browser stores the token, which is included in the header of subsequent API requests, ensuring secure access without needing to re-login.
 
 ---
 
