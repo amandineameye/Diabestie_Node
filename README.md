@@ -189,3 +189,5 @@ MONGODB_CONNECTION_STRING=mongodb://localhost:27017
 - 📈 **Graphs page (Under Construction):**
   - Add a placeholder page for the "Graphs" section.
   - Develop a page that estimates the carbohydrate-to-insulin ratio (carbs per 1 unit of insulin) and the blood sugar reduction per 1 unit of insulin in different contexts.
+- 🌐 **Carb Rate API Integration:**
+  - Currently, carb rates (percentage of carbs in different ingredients) are hardcoded in the database. An improvement would be to find a reliable, free API to dynamically fetch these values, making the app more flexible and easier to maintain.
