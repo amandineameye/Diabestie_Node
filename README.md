@@ -17,7 +17,7 @@ Making the right insulin decision can be overwhelming. This choice directly impa
 
 Diabestie simplifies this process by helping users **track**, **analyze**, and **compare their meals** with past data, allowing them to make informed insulin decisions with confidence. Instead of guessing, users can rely on historical insights tailored to their body’s responses.
 
-## 🎯 Features
+## ✨ Features
 
 Diabestie is designed to streamline insulin management through two key functions:
 
@@ -43,6 +43,18 @@ Diabestie is designed to streamline insulin management through two key functions
 
 - 📝 **Quick Dashboard Notes** – Add a temporary note to the dashboard when you’re short on time to log a full meal entry.
 
+---
+
+## 🎮 Live Demo
+
+Create an account or use:  
+**Username:** Test  
+**Password:** Test12345
+
+[Try Diabestie](https://diabestie-ecru.vercel.app/)
+
+---
+
 ## 📸 Screenshots
 
 ### 1. **Dashboard View**
@@ -63,17 +75,7 @@ Diabestie is designed to streamline insulin management through two key functions
 
 ---
 
-## 🎮 Demo
-
-Create an account or use:  
-**Username:** Test  
-**Password:** Test12345
-
-🚀 [Try it now](https://diabestie-ecru.vercel.app/)
-
----
-
-## 🛠 Tech Stack
+## 🧩 Tech Stack
 
 - **Frontend:** React, Redux
 - **Backend:** Node.js, Express
@@ -89,7 +91,7 @@ Diabestie uses **JWT (JSON Web Tokens)** for secure user authentication. After l
 
 ---
 
-## 💻 Local Setup
+## 🏃‍♀️ How to Run Locally
 
 To run Diabestie locally, follow these steps.
 
@@ -101,7 +103,7 @@ If you haven’t installed it yet, you can get it from the [official Node.js web
 
 ---
 
-## 🚀 Frontend Setup
+## 🏗️ Frontend Setup
 
 1. Clone the frontend repository: [Diabestie Frontend](https://github.com/amandineameye/Diabestie_React.git)
 
@@ -120,7 +122,7 @@ npm run dev
 
 ---
 
-## 🔧 Backend Setup
+## ⚙️ Backend Setup
 
 1. Clone the backend repository: [Diabestie Backend](https://github.com/amandineameye/Diabestie_Node.git)
 
@@ -174,7 +176,7 @@ MONGODB_CONNECTION_STRING=mongodb://localhost:27017
 
 ---
 
-## ✨ Future Improvements
+## 🔮 Future Improvements
 
 - 📱 **Mobile Version:**
   - The app is not yet optimized for mobile. A fully responsive version is planned for future development.
