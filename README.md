@@ -37,7 +37,7 @@ Diabestie is designed to streamline insulin management through two key functions
 
 ---
 
-## 🎮 Live Demo
+## 🚀 Live Demo
 
 Create an account or use:  
 **Username:** Test  
