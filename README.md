@@ -67,7 +67,7 @@ Create an account or use:
 
 ---
 
-## 🧩 Tech Stack
+## 🛠 Tech Stack
 
 - **Frontend:** React, Redux
 - **Backend:** Node.js, Express
