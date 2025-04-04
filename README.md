@@ -1,9 +1,9 @@
 # Diabestie 🌈
 
-**Note:** This project is split into two repos—one for the [frontend](https://github.com/amandineameye/Diabestie_React) and one for the [backend](https://github.com/amandineameye/Diabestie_Node). Both need to be set up and run separately but work together seamlessly. You are currently on the backend repo.
-
 Diabestie is a web app designed to help diabetics accurately estimate their insulin needs before a meal.
 Built by diabetics for diabetics.
+
+**Note:** This project is split into two repos—one for the [frontend](https://github.com/amandineameye/Diabestie_React) and one for the [backend](https://github.com/amandineameye/Diabestie_Node). Both need to be set up and run separately but work together seamlessly. You are currently on the backend repo.
 
 ## 💡 Vision
 
